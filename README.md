@@ -34,14 +34,14 @@ Both fine-tuned models synthesise audio about 35x faster than real time. Trainin
 
 ## System architecture
 
-> _Architecture diagram coming soon. Will be drawn in Excalidraw and embedded here._
+![System architecture](results/diagrams/architecture.png)
 
 <br>
 <br>
 
 ## Inference sequence
 
-> _Sequence diagram coming soon. Will be drawn in Excalidraw and embedded here._
+![Inference sequence](results/diagrams/sequence.png)
 
 <br>
 <br>
