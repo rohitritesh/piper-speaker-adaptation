@@ -1,0 +1,9 @@
+{
+  "text": "Reading a good book before bed helps me fall asleep faster.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_05.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 4.168,
+  "synthesis_seconds": 0.1173,
+  "real_time_factor": 0.0281,
+  "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx"
+}

@@ -1,0 +1,9 @@
+{
+  "text": "Hello, this is a sample of the synthesised voice.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expA_01.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 2.7864,
+  "synthesis_seconds": 0.0923,
+  "real_time_factor": 0.0331,
+  "model": "/home/rohit/tts_assignment/checkpoints/expA/model.onnx"
+}

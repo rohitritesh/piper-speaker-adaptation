@@ -1,0 +1,9 @@
+{
+  "text": "Could you please pass me the salt and pepper?",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_04.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 2.6355,
+  "synthesis_seconds": 0.0721,
+  "real_time_factor": 0.0274,
+  "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx"
+}

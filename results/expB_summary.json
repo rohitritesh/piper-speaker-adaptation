@@ -1,0 +1,17 @@
+{
+  "experiment_name": "expB",
+  "description": "Extended training budget (approximately 3000 training steps)",
+  "max_epochs": 35,
+  "batch_size": 16,
+  "seed": 42,
+  "elapsed_seconds": 15171.66,
+  "elapsed_minutes": 252.86,
+  "was_interrupted": false,
+  "exit_code": 0,
+  "final_metrics": {
+    "train_loss": 44.2
+  },
+  "metrics_csv": "results/expB_step_losses.csv",
+  "raw_log": "logs/expB/training_stdout.log",
+  "completed_at": "2026-05-21T20:12:30"
+}

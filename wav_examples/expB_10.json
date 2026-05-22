@@ -1,0 +1,9 @@
+{
+  "text": "Speech synthesis systems convert written text into natural sounding spoken audio waveforms.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_10.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 6.014,
+  "synthesis_seconds": 0.1705,
+  "real_time_factor": 0.0283,
+  "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx"
+}

@@ -1,0 +1,448 @@
+[
+  {
+    "label": "expA",
+    "num_prompts": 10,
+    "runs_per_prompt": 5,
+    "warmups_per_prompt": 2,
+    "rtf_overall_mean": 0.0287,
+    "rtf_overall_stdev": 0.0023,
+    "rtf_overall_min": 0.0248,
+    "rtf_overall_max": 0.0362,
+    "audio_total_seconds": 38.0227,
+    "per_prompt": [
+      {
+        "index": 1,
+        "prompt": "Hello, this is a sample of the synthesised voice.",
+        "audio_duration_seconds": 3.007,
+        "synthesis_times_seconds": [
+          0.0837,
+          0.0801,
+          0.0879,
+          0.0788,
+          0.0834
+        ],
+        "rtf_values": [
+          0.0278,
+          0.0266,
+          0.0292,
+          0.0262,
+          0.0277
+        ],
+        "rtf_mean": 0.0275,
+        "rtf_stdev": 0.0012
+      },
+      {
+        "index": 2,
+        "prompt": "The quick brown fox jumps over the lazy dog.",
+        "audio_duration_seconds": 3.0534,
+        "synthesis_times_seconds": [
+          0.0862,
+          0.0952,
+          0.0807,
+          0.0823,
+          0.0881
+        ],
+        "rtf_values": [
+          0.0282,
+          0.0312,
+          0.0264,
+          0.0269,
+          0.0289
+        ],
+        "rtf_mean": 0.0283,
+        "rtf_stdev": 0.0019
+      },
+      {
+        "index": 3,
+        "prompt": "In nineteen sixty nine, the first humans landed on the moon.",
+        "audio_duration_seconds": 3.8545,
+        "synthesis_times_seconds": [
+          0.1032,
+          0.1214,
+          0.1045,
+          0.1009,
+          0.0956
+        ],
+        "rtf_values": [
+          0.0268,
+          0.0315,
+          0.0271,
+          0.0262,
+          0.0248
+        ],
+        "rtf_mean": 0.0273,
+        "rtf_stdev": 0.0025
+      },
+      {
+        "index": 4,
+        "prompt": "Could you please pass me the salt and pepper?",
+        "audio_duration_seconds": 2.2988,
+        "synthesis_times_seconds": [
+          0.0645,
+          0.0725,
+          0.073,
+          0.0651,
+          0.0632
+        ],
+        "rtf_values": [
+          0.0281,
+          0.0316,
+          0.0318,
+          0.0283,
+          0.0275
+        ],
+        "rtf_mean": 0.0294,
+        "rtf_stdev": 0.0021
+      },
+      {
+        "index": 5,
+        "prompt": "Reading a good book before bed helps me fall asleep faster.",
+        "audio_duration_seconds": 3.3785,
+        "synthesis_times_seconds": [
+          0.0902,
+          0.1034,
+          0.1061,
+          0.1037,
+          0.0968
+        ],
+        "rtf_values": [
+          0.0267,
+          0.0306,
+          0.0314,
+          0.0307,
+          0.0287
+        ],
+        "rtf_mean": 0.0296,
+        "rtf_stdev": 0.0019
+      },
+      {
+        "index": 6,
+        "prompt": "The weather forecast predicts heavy rainfall and strong winds across the region this evening.",
+        "audio_duration_seconds": 4.9807,
+        "synthesis_times_seconds": [
+          0.1316,
+          0.135,
+          0.1384,
+          0.1339,
+          0.1279
+        ],
+        "rtf_values": [
+          0.0264,
+          0.0271,
+          0.0278,
+          0.0269,
+          0.0257
+        ],
+        "rtf_mean": 0.0268,
+        "rtf_stdev": 0.0008
+      },
+      {
+        "index": 7,
+        "prompt": "Artificial intelligence is changing the way we live, work, and communicate with each other.",
+        "audio_duration_seconds": 5.062,
+        "synthesis_times_seconds": [
+          0.1369,
+          0.1456,
+          0.1448,
+          0.132,
+          0.1738
+        ],
+        "rtf_values": [
+          0.027,
+          0.0288,
+          0.0286,
+          0.0261,
+          0.0343
+        ],
+        "rtf_mean": 0.029,
+        "rtf_stdev": 0.0032
+      },
+      {
+        "index": 8,
+        "prompt": "What a beautiful sunset over the harbour tonight!",
+        "audio_duration_seconds": 2.4381,
+        "synthesis_times_seconds": [
+          0.075,
+          0.0789,
+          0.0708,
+          0.075,
+          0.07
+        ],
+        "rtf_values": [
+          0.0308,
+          0.0324,
+          0.029,
+          0.0308,
+          0.0287
+        ],
+        "rtf_mean": 0.0303,
+        "rtf_stdev": 0.0015
+      },
+      {
+        "index": 9,
+        "prompt": "She walked into the room, looked around carefully, and decided to sit by the window.",
+        "audio_duration_seconds": 4.5395,
+        "synthesis_times_seconds": [
+          0.1643,
+          0.136,
+          0.1268,
+          0.1373,
+          0.1368
+        ],
+        "rtf_values": [
+          0.0362,
+          0.03,
+          0.0279,
+          0.0302,
+          0.0301
+        ],
+        "rtf_mean": 0.0309,
+        "rtf_stdev": 0.0031
+      },
+      {
+        "index": 10,
+        "prompt": "Speech synthesis systems convert written text into natural sounding spoken audio waveforms.",
+        "audio_duration_seconds": 5.4102,
+        "synthesis_times_seconds": [
+          0.1441,
+          0.1505,
+          0.1484,
+          0.1485,
+          0.1583
+        ],
+        "rtf_values": [
+          0.0266,
+          0.0278,
+          0.0274,
+          0.0275,
+          0.0293
+        ],
+        "rtf_mean": 0.0277,
+        "rtf_stdev": 0.001
+      }
+    ]
+  },
+  {
+    "label": "expB",
+    "num_prompts": 10,
+    "runs_per_prompt": 5,
+    "warmups_per_prompt": 2,
+    "rtf_overall_mean": 0.0285,
+    "rtf_overall_stdev": 0.0019,
+    "rtf_overall_min": 0.0233,
+    "rtf_overall_max": 0.0327,
+    "audio_total_seconds": 40.9948,
+    "per_prompt": [
+      {
+        "index": 1,
+        "prompt": "Hello, this is a sample of the synthesised voice.",
+        "audio_duration_seconds": 3.0883,
+        "synthesis_times_seconds": [
+          0.0922,
+          0.0864,
+          0.0885,
+          0.0934,
+          0.099
+        ],
+        "rtf_values": [
+          0.0298,
+          0.028,
+          0.0287,
+          0.0302,
+          0.0321
+        ],
+        "rtf_mean": 0.0298,
+        "rtf_stdev": 0.0016
+      },
+      {
+        "index": 2,
+        "prompt": "The quick brown fox jumps over the lazy dog.",
+        "audio_duration_seconds": 3.0883,
+        "synthesis_times_seconds": [
+          0.0889,
+          0.0942,
+          0.0815,
+          0.0864,
+          0.0912
+        ],
+        "rtf_values": [
+          0.0288,
+          0.0305,
+          0.0264,
+          0.028,
+          0.0295
+        ],
+        "rtf_mean": 0.0286,
+        "rtf_stdev": 0.0016
+      },
+      {
+        "index": 3,
+        "prompt": "In nineteen sixty nine, the first humans landed on the moon.",
+        "audio_duration_seconds": 3.9474,
+        "synthesis_times_seconds": [
+          0.1214,
+          0.1209,
+          0.1151,
+          0.1072,
+          0.1051
+        ],
+        "rtf_values": [
+          0.0308,
+          0.0306,
+          0.0292,
+          0.0272,
+          0.0266
+        ],
+        "rtf_mean": 0.0289,
+        "rtf_stdev": 0.0019
+      },
+      {
+        "index": 4,
+        "prompt": "Could you please pass me the salt and pepper?",
+        "audio_duration_seconds": 2.7051,
+        "synthesis_times_seconds": [
+          0.0748,
+          0.0812,
+          0.0819,
+          0.0707,
+          0.0819
+        ],
+        "rtf_values": [
+          0.0277,
+          0.03,
+          0.0303,
+          0.0261,
+          0.0303
+        ],
+        "rtf_mean": 0.0289,
+        "rtf_stdev": 0.0019
+      },
+      {
+        "index": 5,
+        "prompt": "Reading a good book before bed helps me fall asleep faster.",
+        "audio_duration_seconds": 3.8429,
+        "synthesis_times_seconds": [
+          0.1151,
+          0.1144,
+          0.109,
+          0.099,
+          0.1029
+        ],
+        "rtf_values": [
+          0.0299,
+          0.0298,
+          0.0284,
+          0.0258,
+          0.0268
+        ],
+        "rtf_mean": 0.0281,
+        "rtf_stdev": 0.0018
+      },
+      {
+        "index": 6,
+        "prompt": "The weather forecast predicts heavy rainfall and strong winds across the region this evening.",
+        "audio_duration_seconds": 5.6424,
+        "synthesis_times_seconds": [
+          0.1572,
+          0.1314,
+          0.1448,
+          0.1462,
+          0.1398
+        ],
+        "rtf_values": [
+          0.0279,
+          0.0233,
+          0.0257,
+          0.0259,
+          0.0248
+        ],
+        "rtf_mean": 0.0255,
+        "rtf_stdev": 0.0017
+      },
+      {
+        "index": 7,
+        "prompt": "Artificial intelligence is changing the way we live, work, and communicate with each other.",
+        "audio_duration_seconds": 5.4799,
+        "synthesis_times_seconds": [
+          0.148,
+          0.1477,
+          0.1513,
+          0.1492,
+          0.1697
+        ],
+        "rtf_values": [
+          0.027,
+          0.0269,
+          0.0276,
+          0.0272,
+          0.031
+        ],
+        "rtf_mean": 0.0279,
+        "rtf_stdev": 0.0017
+      },
+      {
+        "index": 8,
+        "prompt": "What a beautiful sunset over the harbour tonight!",
+        "audio_duration_seconds": 2.4729,
+        "synthesis_times_seconds": [
+          0.0733,
+          0.077,
+          0.0706,
+          0.0808,
+          0.0709
+        ],
+        "rtf_values": [
+          0.0296,
+          0.0311,
+          0.0286,
+          0.0327,
+          0.0287
+        ],
+        "rtf_mean": 0.0301,
+        "rtf_stdev": 0.0018
+      },
+      {
+        "index": 9,
+        "prompt": "She walked into the room, looked around carefully, and decided to sit by the window.",
+        "audio_duration_seconds": 4.7717,
+        "synthesis_times_seconds": [
+          0.1351,
+          0.1414,
+          0.134,
+          0.1377,
+          0.1421
+        ],
+        "rtf_values": [
+          0.0283,
+          0.0296,
+          0.0281,
+          0.0289,
+          0.0298
+        ],
+        "rtf_mean": 0.0289,
+        "rtf_stdev": 0.0008
+      },
+      {
+        "index": 10,
+        "prompt": "Speech synthesis systems convert written text into natural sounding spoken audio waveforms.",
+        "audio_duration_seconds": 5.9559,
+        "synthesis_times_seconds": [
+          0.1625,
+          0.1611,
+          0.1604,
+          0.1828,
+          0.1738
+        ],
+        "rtf_values": [
+          0.0273,
+          0.027,
+          0.0269,
+          0.0307,
+          0.0292
+        ],
+        "rtf_mean": 0.0282,
+        "rtf_stdev": 0.0017
+      }
+    ]
+  }
+]

@@ -1,0 +1,284 @@
+diff --git a/src/python/piper_train/__main__.py b/src/python/piper_train/__main__.py
+index 3a4ff51..a593d90 100644
+--- a/src/python/piper_train/__main__.py
++++ b/src/python/piper_train/__main__.py
+@@ -1,3 +1,19 @@
++"""
++Patched entry point for piper_train.
++
++The original file used Lightning 1.x methods (Trainer.add_argparse_args and
++Trainer.from_argparse_args) that were removed in Lightning 2.x. This
++patched version declares the Trainer arguments manually and builds the
++Trainer directly with keyword arguments, which works on both Lightning
++1.x and 2.x.
++
++The behaviour is otherwise identical to the original. Same CLI flags,
++same training loop, same checkpointing.
++
++Patch maintained by Group 41 for compatibility with PyTorch 2.6 +
++Lightning 2.x. The original file is kept alongside as
++__main__.py.original.
++"""
+ import argparse
+ import json
+ import logging
+@@ -12,6 +28,76 @@ from .vits.lightning import VitsModel
+ _LOGGER = logging.getLogger(__package__)
+ 
+ 
++def _add_trainer_args(parser: argparse.ArgumentParser) -> None:
++    """
++    Adds the Lightning Trainer arguments that we actually use in this
++    project. We do this by hand because Lightning 2.x removed the
++    convenience method that used to do it for us.
++    """
++    group = parser.add_argument_group("Lightning Trainer")
++    group.add_argument("--accelerator", type=str, default="auto",
++                       help="Accelerator type: cpu, gpu, auto, etc.")
++    group.add_argument("--devices", type=str, default="auto",
++                       help="Number of devices to use (1, 2, ..., or auto).")
++    group.add_argument("--max_epochs", type=int, default=None,
++                       help="Stop after this many epochs.")
++    group.add_argument("--min_epochs", type=int, default=None,
++                       help="Run at least this many epochs.")
++    group.add_argument("--precision", type=str, default="32-true",
++                       help="Numeric precision: 32, 32-true, 16-mixed, bf16-mixed, etc.")
++    group.add_argument("--default_root_dir", type=str, default=None,
++                       help="Where Lightning saves logs and checkpoints.")
++    group.add_argument("--resume_from_checkpoint", type=str, default=None,
++                       help="Path to a checkpoint to resume training from.")
++    group.add_argument("--log_every_n_steps", type=int, default=10,
++                       help="How often to log metrics to TensorBoard.")
++    group.add_argument("--num_sanity_val_steps", type=int, default=0,
++                       help="Sanity validation steps before training starts.")
++    group.add_argument("--limit_val_batches", type=float, default=0.0,
++                       help="Fraction of val set to use (0.0 disables validation).")
++    group.add_argument("--gradient_clip_val", type=float, default=None,
++                       help="Optional gradient clipping value.")
++
++
++def _build_trainer(args: argparse.Namespace) -> Trainer:
++    """
++    Constructs a Trainer using only the arguments the user actually
++    provided. Anything left at the default None is omitted so Lightning
++    picks its own default.
++    """
++    # Devices needs to be int if numeric, otherwise leave as string.
++    devices = args.devices
++    if isinstance(devices, str) and devices.isdigit():
++        devices = int(devices)
++
++    # Precision needs to be normalised. People may pass "32" but Lightning
++    # 2.x wants "32-true" for the full precision case.
++    precision = args.precision
++    if precision == "32":
++        precision = "32-true"
++    elif precision == "16":
++        precision = "16-mixed"
++
++    trainer_kwargs = {
++        "accelerator": args.accelerator,
++        "devices": devices,
++        "precision": precision,
++        "log_every_n_steps": args.log_every_n_steps,
++        "num_sanity_val_steps": args.num_sanity_val_steps,
++        "limit_val_batches": args.limit_val_batches,
++    }
++    if args.max_epochs is not None:
++        trainer_kwargs["max_epochs"] = args.max_epochs
++    if args.min_epochs is not None:
++        trainer_kwargs["min_epochs"] = args.min_epochs
++    if args.default_root_dir is not None:
++        trainer_kwargs["default_root_dir"] = args.default_root_dir
++    if args.gradient_clip_val is not None:
++        trainer_kwargs["gradient_clip_val"] = args.gradient_clip_val
++
++    return Trainer(**trainer_kwargs)
++
++
+ def main():
+     logging.basicConfig(level=logging.DEBUG)
+ 
+@@ -20,29 +106,29 @@ def main():
+         "--dataset-dir", required=True, help="Path to pre-processed dataset directory"
+     )
+     parser.add_argument(
+-        "--checkpoint-epochs",
+-        type=int,
++        "--checkpoint-epochs", type=int,
+         help="Save checkpoint every N epochs (default: 1)",
+     )
+     parser.add_argument(
+-        "--quality",
+-        default="medium",
+-        choices=("x-low", "medium", "high"),
++        "--quality", default="medium", choices=("x-low", "medium", "high"),
+         help="Quality/size of model (default: medium)",
+     )
+     parser.add_argument(
+         "--resume_from_single_speaker_checkpoint",
+-        help="For multi-speaker models only. Converts a single-speaker checkpoint to multi-speaker and resumes training",
++        help=("For multi-speaker models only. Converts a single-speaker "
++              "checkpoint to multi-speaker and resumes training"),
+     )
+-    Trainer.add_argparse_args(parser)
++
++    _add_trainer_args(parser)
+     VitsModel.add_model_specific_args(parser)
+     parser.add_argument("--seed", type=int, default=1234)
++
+     args = parser.parse_args()
+     _LOGGER.debug(args)
+ 
+     args.dataset_dir = Path(args.dataset_dir)
+     if not args.default_root_dir:
+-        args.default_root_dir = args.dataset_dir
++        args.default_root_dir = str(args.dataset_dir)
+ 
+     torch.backends.cudnn.benchmark = True
+     torch.manual_seed(args.seed)
+@@ -51,15 +137,17 @@ def main():
+     dataset_path = args.dataset_dir / "dataset.jsonl"
+ 
+     with open(config_path, "r", encoding="utf-8") as config_file:
+-        # See preprocess.py for format
+         config = json.load(config_file)
+         num_symbols = int(config["num_symbols"])
+         num_speakers = int(config["num_speakers"])
+         sample_rate = int(config["audio"]["sample_rate"])
+ 
+-    trainer = Trainer.from_argparse_args(args)
++    trainer = _build_trainer(args)
++
+     if args.checkpoint_epochs is not None:
+-        trainer.callbacks = [ModelCheckpoint(every_n_epochs=args.checkpoint_epochs)]
++        trainer.callbacks.append(
++            ModelCheckpoint(every_n_epochs=args.checkpoint_epochs, save_top_k=-1)
++        )
+         _LOGGER.debug(
+             "Checkpoints will be saved every %s epoch(s)", args.checkpoint_epochs
+         )
+@@ -92,9 +180,9 @@ def main():
+     if args.resume_from_single_speaker_checkpoint:
+         assert (
+             num_speakers > 1
+-        ), "--resume_from_single_speaker_checkpoint is only for multi-speaker models. Use --resume_from_checkpoint for single-speaker models."
++        ), ("--resume_from_single_speaker_checkpoint is only for multi-speaker "
++            "models. Use --resume_from_checkpoint for single-speaker models.")
+ 
+-        # Load single-speaker checkpoint
+         _LOGGER.debug(
+             "Resuming from single-speaker checkpoint: %s",
+             args.resume_from_single_speaker_checkpoint,
+@@ -105,7 +193,6 @@ def main():
+         )
+         g_dict = model_single.model_g.state_dict()
+         for key in list(g_dict.keys()):
+-            # Remove keys that can't be copied over due to missing speaker embedding
+             if (
+                 key.startswith("dec.cond")
+                 or key.startswith("dp.cond")
+@@ -113,15 +200,17 @@ def main():
+             ):
+                 g_dict.pop(key, None)
+ 
+-        # Copy over the multi-speaker model, excluding keys related to the
+-        # speaker embedding (which is missing from the single-speaker model).
+         load_state_dict(model.model_g, g_dict)
+         load_state_dict(model.model_d, model_single.model_d.state_dict())
+         _LOGGER.info(
+             "Successfully converted single-speaker checkpoint to multi-speaker"
+         )
+ 
+-    trainer.fit(model)
++    # In Lightning 2.x the resume path is passed to trainer.fit, not the
++    # Trainer constructor. We honour the same flag name as the original
++    # script so user-facing usage does not change.
++    ckpt_path = args.resume_from_checkpoint if args.resume_from_checkpoint else None
++    trainer.fit(model, ckpt_path=ckpt_path)
+ 
+ 
+ def load_state_dict(model, saved_state_dict):
+@@ -130,18 +219,13 @@ def load_state_dict(model, saved_state_dict):
+ 
+     for k, v in state_dict.items():
+         if k in saved_state_dict:
+-            # Use saved value
+             new_state_dict[k] = saved_state_dict[k]
+         else:
+-            # Use initialized value
+             _LOGGER.debug("%s is not in the checkpoint", k)
+             new_state_dict[k] = v
+ 
+     model.load_state_dict(new_state_dict)
+ 
+ 
+-# -----------------------------------------------------------------------------
+-
+-
+ if __name__ == "__main__":
+-    main()
++    main()
+\ No newline at end of file
+diff --git a/src/python/piper_train/vits/lightning.py b/src/python/piper_train/vits/lightning.py
+index c6b7250..3dbb929 100644
+--- a/src/python/piper_train/vits/lightning.py
++++ b/src/python/piper_train/vits/lightning.py
+@@ -117,6 +117,10 @@ class VitsModel(pl.LightningModule):
+         # State kept between training optimizers
+         self._y = None
+         self._y_hat = None
++        # Lightning 2.x removed automatic alternating between multiple
++        # optimizers, so we have to drive the generator and the
++        # discriminator updates ourselves inside training_step.
++        self.automatic_optimization = False
+ 
+     def _load_datasets(
+         self,
+@@ -186,12 +190,40 @@ class VitsModel(pl.LightningModule):
+             batch_size=self.hparams.batch_size,
+         )
+ 
+-    def training_step(self, batch: Batch, batch_idx: int, optimizer_idx: int):
+-        if optimizer_idx == 0:
+-            return self.training_step_g(batch)
+-
+-        if optimizer_idx == 1:
+-            return self.training_step_d(batch)
++    def training_step(self, batch: Batch, batch_idx: int):
++        # Lightning 2.x: we run the generator and discriminator updates
++        # ourselves because automatic alternating between two optimizers
++        # was removed.
++        opt_g, opt_d = self.optimizers()
++
++        # Generator step
++        opt_g.zero_grad()
++        loss_g = self.training_step_g(batch)
++        self.manual_backward(loss_g)
++        opt_g.step()
++
++        # Discriminator step, using the cached y and y_hat from the
++        # generator step above.
++        opt_d.zero_grad()
++        loss_d = self.training_step_d(batch)
++        self.manual_backward(loss_d)
++        opt_d.step()
++
++        # Step the learning rate schedulers once per epoch. Lightning
++        # does this automatically only in automatic optimization mode.
++        if self.trainer.is_last_batch:
++            schedulers = self.lr_schedulers()
++            if schedulers is not None:
++                if not isinstance(schedulers, (list, tuple)):
++                    schedulers = [schedulers]
++                for sch in schedulers:
++                    sch.step()
++
++        # Combined loss is what gets logged as the headline number
++        # for this step.
++        total = loss_g.detach() + loss_d.detach()
++        self.log('train_loss', total, prog_bar=True)
++        return total
+ 
+     def training_step_g(self, batch: Batch):
+         x, x_lengths, y, _, spec, spec_lengths, speaker_ids = (

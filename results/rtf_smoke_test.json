@@ -1,0 +1,66 @@
+[
+  {
+    "label": "base",
+    "num_prompts": 3,
+    "runs_per_prompt": 3,
+    "warmups_per_prompt": 1,
+    "rtf_overall_mean": 0.0268,
+    "rtf_overall_stdev": 0.0008,
+    "rtf_overall_min": 0.0251,
+    "rtf_overall_max": 0.0279,
+    "audio_total_seconds": 11.4358,
+    "per_prompt": [
+      {
+        "index": 1,
+        "prompt": "Hello, this is a sample of the synthesised voice.",
+        "audio_duration_seconds": 3.6455,
+        "synthesis_times_seconds": [
+          0.0961,
+          0.0916,
+          0.0974
+        ],
+        "rtf_values": [
+          0.0264,
+          0.0251,
+          0.0267
+        ],
+        "rtf_mean": 0.0261,
+        "rtf_stdev": 0.0008
+      },
+      {
+        "index": 2,
+        "prompt": "The quick brown fox jumps over the lazy dog.",
+        "audio_duration_seconds": 3.5178,
+        "synthesis_times_seconds": [
+          0.0934,
+          0.0934,
+          0.0948
+        ],
+        "rtf_values": [
+          0.0266,
+          0.0266,
+          0.027
+        ],
+        "rtf_mean": 0.0267,
+        "rtf_stdev": 0.0002
+      },
+      {
+        "index": 3,
+        "prompt": "In nineteen sixty nine, the first humans landed on the moon.",
+        "audio_duration_seconds": 4.2725,
+        "synthesis_times_seconds": [
+          0.1191,
+          0.1135,
+          0.1193
+        ],
+        "rtf_values": [
+          0.0279,
+          0.0266,
+          0.0279
+        ],
+        "rtf_mean": 0.0275,
+        "rtf_stdev": 0.0008
+      }
+    ]
+  }
+]

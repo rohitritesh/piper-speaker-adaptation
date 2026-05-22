@@ -1,0 +1,112 @@
+[
+  {
+    "text": "Hello, this is a sample of the synthesised voice.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_01.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 3.007,
+    "synthesis_seconds": 0.0977,
+    "real_time_factor": 0.0325,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 1,
+    "prompt": "Hello, this is a sample of the synthesised voice."
+  },
+  {
+    "text": "The quick brown fox jumps over the lazy dog.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_02.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 2.7748,
+    "synthesis_seconds": 0.0773,
+    "real_time_factor": 0.0279,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 2,
+    "prompt": "The quick brown fox jumps over the lazy dog."
+  },
+  {
+    "text": "In nineteen sixty nine, the first humans landed on the moon.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_03.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 4.2841,
+    "synthesis_seconds": 0.1256,
+    "real_time_factor": 0.0293,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 3,
+    "prompt": "In nineteen sixty nine, the first humans landed on the moon."
+  },
+  {
+    "text": "Could you please pass me the salt and pepper?",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_04.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 2.6355,
+    "synthesis_seconds": 0.0721,
+    "real_time_factor": 0.0274,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 4,
+    "prompt": "Could you please pass me the salt and pepper?"
+  },
+  {
+    "text": "Reading a good book before bed helps me fall asleep faster.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_05.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 4.168,
+    "synthesis_seconds": 0.1173,
+    "real_time_factor": 0.0281,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 5,
+    "prompt": "Reading a good book before bed helps me fall asleep faster."
+  },
+  {
+    "text": "The weather forecast predicts heavy rainfall and strong winds across the region this evening.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_06.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 5.4915,
+    "synthesis_seconds": 0.1513,
+    "real_time_factor": 0.0275,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 6,
+    "prompt": "The weather forecast predicts heavy rainfall and strong winds across the region this evening."
+  },
+  {
+    "text": "Artificial intelligence is changing the way we live, work, and communicate with each other.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_07.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 5.5147,
+    "synthesis_seconds": 0.1559,
+    "real_time_factor": 0.0283,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 7,
+    "prompt": "Artificial intelligence is changing the way we live, work, and communicate with each other."
+  },
+  {
+    "text": "What a beautiful sunset over the harbour tonight!",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_08.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 2.4729,
+    "synthesis_seconds": 0.0744,
+    "real_time_factor": 0.0301,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 8,
+    "prompt": "What a beautiful sunset over the harbour tonight!"
+  },
+  {
+    "text": "She walked into the room, looked around carefully, and decided to sit by the window.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_09.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 4.853,
+    "synthesis_seconds": 0.146,
+    "real_time_factor": 0.0301,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 9,
+    "prompt": "She walked into the room, looked around carefully, and decided to sit by the window."
+  },
+  {
+    "text": "Speech synthesis systems convert written text into natural sounding spoken audio waveforms.",
+    "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_10.wav",
+    "sample_rate": 22050,
+    "audio_duration_seconds": 6.014,
+    "synthesis_seconds": 0.1705,
+    "real_time_factor": 0.0283,
+    "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx",
+    "index": 10,
+    "prompt": "Speech synthesis systems convert written text into natural sounding spoken audio waveforms."
+  }
+]

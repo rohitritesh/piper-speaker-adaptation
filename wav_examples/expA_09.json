@@ -1,0 +1,9 @@
+{
+  "text": "She walked into the room, looked around carefully, and decided to sit by the window.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expA_09.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 5.0387,
+  "synthesis_seconds": 0.1421,
+  "real_time_factor": 0.0282,
+  "model": "/home/rohit/tts_assignment/checkpoints/expA/model.onnx"
+}

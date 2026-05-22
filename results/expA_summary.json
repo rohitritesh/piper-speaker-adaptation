@@ -1,0 +1,17 @@
+{
+  "experiment_name": "expA",
+  "description": "Short training budget baseline (approximately 500 training steps)",
+  "max_epochs": 6,
+  "batch_size": 16,
+  "seed": 42,
+  "elapsed_seconds": 1419.34,
+  "elapsed_minutes": 23.66,
+  "was_interrupted": false,
+  "exit_code": 0,
+  "final_metrics": {
+    "train_loss": 51.1
+  },
+  "metrics_csv": "results/expA_step_losses.csv",
+  "raw_log": "logs/expA/training_stdout.log",
+  "completed_at": "2026-05-21T15:09:18"
+}

@@ -1,0 +1,9 @@
+{
+  "text": "The weather forecast predicts heavy rainfall and strong winds across the region this evening.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expA_06.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 4.2144,
+  "synthesis_seconds": 0.1331,
+  "real_time_factor": 0.0316,
+  "model": "/home/rohit/tts_assignment/checkpoints/expA/model.onnx"
+}

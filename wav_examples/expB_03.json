@@ -1,0 +1,9 @@
+{
+  "text": "In nineteen sixty nine, the first humans landed on the moon.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expB_03.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 4.2841,
+  "synthesis_seconds": 0.1256,
+  "real_time_factor": 0.0293,
+  "model": "/home/rohit/tts_assignment/checkpoints/expB/model.onnx"
+}

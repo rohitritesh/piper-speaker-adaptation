@@ -1,0 +1,34 @@
+# Experiment A: a deliberately short fine-tuning run.
+#
+# We start from the Amy Medium voice and let it adapt to LJSpeech for
+# only a handful of epochs. The idea is to capture what the model sounds
+# like when it has only just begun to learn our target speaker. We will
+# compare this against Experiment B, which gets to train much longer.
+
+experiment_name: expA
+description: Short training budget baseline (approximately 500 training steps)
+
+# Reproducibility settings. These must be identical in expB so the only
+# thing that differs between the two runs is the training budget.
+seed: 42
+batch_size: 16
+sample_rate: 22050
+quality: medium
+
+# This is the variable we are deliberately changing between A and B.
+max_epochs: 6
+# With 1350 training utterances and a batch size of 16, six epochs gives
+# us roughly 6 * (1350 / 16) = 506 training steps.
+
+# Where the inputs live and where the outputs will land.
+processed_data_dir: data/lj_subset_processed
+base_checkpoint: checkpoints/amy_medium_base.ckpt
+output_dir: checkpoints/expA
+log_dir: logs/expA
+metrics_csv: results/expA_step_losses.csv
+
+# How often we save and log during training. Same values in both
+# experiments so the comparison stays fair.
+checkpoint_every_n_epochs: 1
+log_every_n_steps: 10
+precision: 32

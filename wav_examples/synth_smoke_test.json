@@ -1,0 +1,9 @@
+{
+  "text": "This is the proper synthesis script working.",
+  "wav_path": "wav_examples/synth_smoke_test.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 3.0534,
+  "synthesis_seconds": 0.1078,
+  "real_time_factor": 0.0353,
+  "model": "checkpoints/amy_medium_base.onnx"
+}

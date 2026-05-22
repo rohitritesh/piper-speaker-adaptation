@@ -1,0 +1,4 @@
+model,prompt_index,prompt,audio_duration_seconds,rtf_mean,rtf_stdev
+base,1,"Hello, this is a sample of the synthesised voice.",3.6455,0.0261,0.0008
+base,2,The quick brown fox jumps over the lazy dog.,3.5178,0.0267,0.0002
+base,3,"In nineteen sixty nine, the first humans landed on the moon.",4.2725,0.0275,0.0008

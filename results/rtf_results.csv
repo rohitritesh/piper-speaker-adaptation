@@ -1,0 +1,21 @@
+model,prompt_index,prompt,audio_duration_seconds,rtf_mean,rtf_stdev
+expA,1,"Hello, this is a sample of the synthesised voice.",3.007,0.0275,0.0012
+expA,2,The quick brown fox jumps over the lazy dog.,3.0534,0.0283,0.0019
+expA,3,"In nineteen sixty nine, the first humans landed on the moon.",3.8545,0.0273,0.0025
+expA,4,Could you please pass me the salt and pepper?,2.2988,0.0294,0.0021
+expA,5,Reading a good book before bed helps me fall asleep faster.,3.3785,0.0296,0.0019
+expA,6,The weather forecast predicts heavy rainfall and strong winds across the region this evening.,4.9807,0.0268,0.0008
+expA,7,"Artificial intelligence is changing the way we live, work, and communicate with each other.",5.062,0.029,0.0032
+expA,8,What a beautiful sunset over the harbour tonight!,2.4381,0.0303,0.0015
+expA,9,"She walked into the room, looked around carefully, and decided to sit by the window.",4.5395,0.0309,0.0031
+expA,10,Speech synthesis systems convert written text into natural sounding spoken audio waveforms.,5.4102,0.0277,0.001
+expB,1,"Hello, this is a sample of the synthesised voice.",3.0883,0.0298,0.0016
+expB,2,The quick brown fox jumps over the lazy dog.,3.0883,0.0286,0.0016
+expB,3,"In nineteen sixty nine, the first humans landed on the moon.",3.9474,0.0289,0.0019
+expB,4,Could you please pass me the salt and pepper?,2.7051,0.0289,0.0019
+expB,5,Reading a good book before bed helps me fall asleep faster.,3.8429,0.0281,0.0018
+expB,6,The weather forecast predicts heavy rainfall and strong winds across the region this evening.,5.6424,0.0255,0.0017
+expB,7,"Artificial intelligence is changing the way we live, work, and communicate with each other.",5.4799,0.0279,0.0017
+expB,8,What a beautiful sunset over the harbour tonight!,2.4729,0.0301,0.0018
+expB,9,"She walked into the room, looked around carefully, and decided to sit by the window.",4.7717,0.0289,0.0008
+expB,10,Speech synthesis systems convert written text into natural sounding spoken audio waveforms.,5.9559,0.0282,0.0017

@@ -1,0 +1,9 @@
+{
+  "text": "The quick brown fox jumps over the lazy dog.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expA_02.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 3.1695,
+  "synthesis_seconds": 0.0947,
+  "real_time_factor": 0.0299,
+  "model": "/home/rohit/tts_assignment/checkpoints/expA/model.onnx"
+}

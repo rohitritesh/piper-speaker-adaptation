@@ -1,0 +1,33 @@
+# Experiment B: a much longer fine-tuning run.
+#
+# Exactly the same setup as Experiment A, except this one trains for
+# roughly six times as many epochs. By the end it should sound noticeably
+# closer to LJSpeech than the shorter Experiment A. The contrast between
+# the two is what tells us how much training budget actually matters for
+# adapting to a new single speaker.
+
+experiment_name: expB
+description: Extended training budget (approximately 3000 training steps)
+
+# Reproducibility settings. Identical to expA on purpose.
+seed: 42
+batch_size: 16
+sample_rate: 22050
+quality: medium
+
+# The single variable we are changing between expA and expB.
+max_epochs: 35
+# With 1350 training utterances and a batch size of 16, thirty five
+# epochs gives us roughly 35 * (1350 / 16) = 2953 training steps.
+
+# Where the inputs live and where the outputs will land.
+processed_data_dir: data/lj_subset_processed
+base_checkpoint: checkpoints/amy_medium_base.ckpt
+output_dir: checkpoints/expB
+log_dir: logs/expB
+metrics_csv: results/expB_step_losses.csv
+
+# Same logging and checkpoint cadence as expA so the comparison is fair.
+checkpoint_every_n_epochs: 5
+log_every_n_steps: 10
+precision: 32

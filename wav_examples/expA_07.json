@@ -1,0 +1,9 @@
+{
+  "text": "Artificial intelligence is changing the way we live, work, and communicate with each other.",
+  "wav_path": "/home/rohit/tts_assignment/wav_examples/expA_07.wav",
+  "sample_rate": 22050,
+  "audio_duration_seconds": 5.4683,
+  "synthesis_seconds": 0.1571,
+  "real_time_factor": 0.0287,
+  "model": "/home/rohit/tts_assignment/checkpoints/expA/model.onnx"
+}
